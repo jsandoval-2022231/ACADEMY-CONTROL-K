@@ -6,14 +6,20 @@ class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
+        this.userPath = '/api/users';
 
         this.connectDB();
+        this.routes();
         this.middlewares();
     }
 
     async connectDB(){
         await dbConnection();
     } 
+
+    routes(){
+        this.app.use(this.userPath, require('../routes/user.routes'));
+    }
 
     middlewares(){
         this.app.use(express.static('public'));
