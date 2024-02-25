@@ -1,5 +1,4 @@
 const { genJWT } = require('../helpers/gen-jwt');
-const user = require('../models/user');
 const User = require('../models/user');
 const bcryptjs = require('bcryptjs');
 
@@ -31,20 +30,20 @@ const login = async (req, res) => {
 
         //veryfing the password
         
-        // const validPassword = bcryptjs.compareSync(password, user.password);
-        // console.log(validPassword);
-        // console.log(password, user.password);
-        // if (!validPassword) {
-        //     return res.status(400).json({
-        //         msg: "Password is not valid"
-        //     });
-        // }
-
-        if( password !== user.password){
+        const validPassword = bcryptjs.compareSync(password, user.password);
+        console.log(validPassword);
+        console.log(password, user.password);
+        if (!validPassword) {
             return res.status(400).json({
                 msg: "Password is not valid"
             });
         }
+
+        // if( password !== user.password){
+        //     return res.status(400).json({
+        //         msg: "Password is not valid"
+        //     });
+        // }
 
         const token = await genJWT(user.id);
 
