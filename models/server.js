@@ -7,10 +7,12 @@ class Server{
         this.app = express();
         this.port = process.env.PORT;
         this.userPath = '/api/users';
+        
 
         this.connectDB();
-        this.routes();
         this.middlewares();
+        this.routes();
+
     }
 
     async connectDB(){
@@ -19,6 +21,7 @@ class Server{
 
     routes(){
         this.app.use(this.userPath, require('../routes/user.routes'));
+        
     }
 
     middlewares(){
