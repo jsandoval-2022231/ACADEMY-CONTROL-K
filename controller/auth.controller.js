@@ -4,17 +4,20 @@ const bcryptjs = require('bcryptjs');
 
 let userIdentity = '';
 let userName = '';
+let userRole = '';
 
 const login = async (req, res) => {
     const { email, password } = req.body;
-
     try {
         //veryfing if the email exists
         const user = await User.findOne({ email });
+        console.log("user", user);
+        
+        console.log('email', user.email);
         userIdentity = user._id;
         userName = user.name;
-        console.log(userIdentity);
-        console.log(userName);
+        userRole = user.role;
+        console.log('password', userName);
         if (!user) {
             return res.status(400).json({
                 msg: "Email is not registered"
@@ -28,22 +31,13 @@ const login = async (req, res) => {
             });
         }
 
-        //veryfing the password
-        
+        //veryfing the password 
         const validPassword = bcryptjs.compareSync(password, user.password);
-        console.log(validPassword);
-        console.log(password, user.password);
         if (!validPassword) {
             return res.status(400).json({
                 msg: "Password is not valid"
             });
         }
-
-        // if( password !== user.password){
-        //     return res.status(400).json({
-        //         msg: "Password is not valid"
-        //     });
-        // }
 
         const token = await genJWT(user.id);
 
@@ -69,8 +63,13 @@ const getUserName = () => {
     return userName;
 }
 
+const getUserRole = () => {
+    return userRole;
+}
+
 module.exports = {
     login,
     getUserIdentity,
-    getUserName
+    getUserName, 
+    getUserRole
 }
