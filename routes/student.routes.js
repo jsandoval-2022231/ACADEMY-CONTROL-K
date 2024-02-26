@@ -1,14 +1,17 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 const { getStudent, postCourse } = require('../controller/student.controller');
+const { limitCourses } = require('../helpers/course-validators');
+const {validInputs } = require('../middlewares/valid-inputs');
 
 const router = Router();
 
 router.get('/', getStudent);
 
 router.post('/', [
-    check('user', 'The user is required').not().isEmpty(),
     check('courses', 'The courses are required').not().isEmpty(),
+    check('courses', 'You only can add 3 courses').custom(limitCourses),
+    validInputs,
 ], postCourse);
 
 

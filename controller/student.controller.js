@@ -26,17 +26,22 @@ const postCourse = async (req, res) => {
 
     const { user, courses } = req.body;
 
-    const student = new Student({ user, courses});
+    const existStudent = await Student.findOne({ user: studentId } );
+    if(existStudent){
+        existStudent.courses.push(courses);
+        response.status(200).json({
+            existStudent
+        });
+    }else{
+        const student = new Student({ user, courses});
 
-    student.courses.push(...courses);
-
-    await student.save();
-    res.status(200).json({
-        student
-    });
+        await student.save();
+        res.status(200).json({
+            student
+        });
+    }
+    
 }
-
-
 
 module.exports = {
     getStudent,

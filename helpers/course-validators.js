@@ -10,6 +10,13 @@ const isTeacher = async () => {
     }
 }
 
+const limitCourses = async (courses) => {
+    if (courses.length > 3) {
+        throw new Error('The limit of courses is 3');
+    }
+}
+
 module.exports = {
-    isTeacher
+    isTeacher,
+    limitCourses
 }
