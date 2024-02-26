@@ -1,0 +1,42 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "studentAC",
+    "dateExported": "2024-02-26T11:43:05.151Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "04faf773-5a1b-4c03-a97d-e1a31c220af3",
+            "colId": "c928bc1e-0350-4305-b915-c79e7ec93c2b",
+            "containerId": "",
+            "name": "getStudent",
+            "url": "http://localhost:3000/api/students",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-02-26T00:36:52.396Z",
+            "modified": "2024-02-26T00:37:02.039Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a8e65f41-6aad-4124-a4b4-ac0909e49337",
+            "colId": "c928bc1e-0350-4305-b915-c79e7ec93c2b",
+            "containerId": "",
+            "name": "addCourse",
+            "url": "http://localhost:3000/api/students",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-02-26T02:48:41.944Z",
+            "modified": "2024-02-26T11:38:18.785Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"courses\": [\"65dbf08909ac2a6549372745\"]\n}\n",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

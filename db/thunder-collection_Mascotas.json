@@ -1,0 +1,94 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Mascotas",
+    "dateExported": "2024-02-26T11:43:20.821Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a9a968aa-7cc2-4ad6-b922-7b67f178283f",
+            "colId": "82ff7c19-fb05-405b-b105-a934d5267f99",
+            "containerId": "",
+            "name": "mascotaGet",
+            "url": "http://localhost:3000/api/mascotas",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-02-24T00:03:51.087Z",
+            "modified": "2024-02-24T00:03:51.087Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "535fffb0-c952-4fb4-96c5-a231e49f4bf7",
+            "colId": "82ff7c19-fb05-405b-b105-a934d5267f99",
+            "containerId": "",
+            "name": "mascotaPost",
+            "url": "http://localhost:3000/api/mascotas",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-02-24T00:03:51.088Z",
+            "modified": "2024-02-24T00:03:51.088Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"jijija\",\n  \"edad\": 5,\n  \"raza\": \"cualquier raza\",\n  \"adoptado\": false\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7a021dbf-3a15-4adf-9840-83e638308845",
+            "colId": "82ff7c19-fb05-405b-b105-a934d5267f99",
+            "containerId": "",
+            "name": "mascotaDelete",
+            "url": "http://localhost:3000/api/mascotas/65c6662a10982c6860689ee9",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2024-02-24T00:03:51.089Z",
+            "modified": "2024-02-24T00:03:51.089Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"adoptado\": false\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7108b14b-304c-491f-aa13-b13cbffc295b",
+            "colId": "82ff7c19-fb05-405b-b105-a934d5267f99",
+            "containerId": "",
+            "name": "getMascotaById",
+            "url": "http://localhost:3000/api/mascotas/65c6662a10982c6860689ee9",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-02-24T00:03:51.090Z",
+            "modified": "2024-02-24T00:03:51.090Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "69a3c839-8dff-4030-8318-dff7b09a997d",
+            "colId": "82ff7c19-fb05-405b-b105-a934d5267f99",
+            "containerId": "",
+            "name": "mascotaPut",
+            "url": "http://localhost:3000/api/mascotas/65c6662a10982c6860689ee9",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-02-24T00:03:51.091Z",
+            "modified": "2024-02-24T00:03:51.091Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"afafdafdfadfdfa\",\n  \"adoptado\": false\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

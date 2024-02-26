@@ -1,0 +1,42 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "courseAC",
+    "dateExported": "2024-02-26T11:42:57.038Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a1d4ef0a-7399-4b53-9084-3c76ff906225",
+            "colId": "ab9950fe-97e2-4eec-ab59-5fd5a29e5e23",
+            "containerId": "",
+            "name": "getCourse",
+            "url": "http://localhost:3000/api/courses",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-02-25T22:40:24.689Z",
+            "modified": "2024-02-25T22:40:38.249Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "2663bfc2-8101-4b9e-a5df-20e95ec35b9b",
+            "colId": "ab9950fe-97e2-4eec-ab59-5fd5a29e5e23",
+            "containerId": "",
+            "name": "postCourse",
+            "url": "http://localhost:3000/api/courses",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-02-25T22:45:30.803Z",
+            "modified": "2024-02-26T02:52:52.749Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Test6\",\n  \"description\": \"this is a Test6 class\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
