@@ -26,22 +26,38 @@ const postCourse = async (req, res) => {
 
     const { user, courses } = req.body;
 
-    const existStudent = await Student.findOne({ user: studentId } );
-    if(existStudent){
-        existStudent.courses.push(courses);
-        response.status(200).json({
-            existStudent
-        });
-    }else{
-        const student = new Student({ user, courses});
-
+    const studentExist = await Student.findOne({ user });
+    if (!studentExist) {
+        const student = new Student({ user, courses });
         await student.save();
         res.status(200).json({
             student
         });
+    }else{
+        if(studentExist.courses.includes(...courses)){
+            console.log('is in it?');
+            res.status(400).json({
+                msg: `The course with id ${courses} is already added to the student ${getUserName()}`
+            });
+        }
+        // studentExist.courses.push(...courses);
+        // await studentExist.save();
+        // res.status(200).json({
+        //     msg: 'Course added to the student',
+        //     studentExist
+        // });
     }
+    // const student = new Student({ user, courses });
+    // student.courses.push(...courses);
+    // await student.save();
+    // res.status(200).json({
+    //     student
+    // });
+
     
 }
+
+
 
 module.exports = {
     getStudent,
