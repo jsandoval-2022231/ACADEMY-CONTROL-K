@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { getStudent, postCourse } = require('../controller/student.controller');
+const { getStudent, postCourse, getCoursesByStudent } = require('../controller/student.controller');
 const { limitCourses, existCourse, existStudent } = require('../helpers/course-validators');
 const { validInputs } = require('../middlewares/valid-inputs');
 
@@ -16,4 +16,5 @@ router.post('/', [
 ], postCourse);
 
 
+router.get('/courses', getCoursesByStudent);
 module.exports = router;

@@ -33,33 +33,48 @@ const postCourse = async (req, res) => {
         res.status(200).json({
             student
         });
-    }else{
-        if(studentExist.courses.includes(...courses)){
-            console.log('is in it?');
+    }else {
+        const coursesToAdd = Array.isArray(courses) ? courses : [courses]; // Convertir courses en un array si no lo es
+        const coursesAlreadyAdded = coursesToAdd.filter(course => studentExist.courses.includes(course));
+
+        if (coursesAlreadyAdded.length > 0) {
             res.status(400).json({
-                msg: `The course with id ${courses} is already added to the student ${getUserName()}`
+                msg: `The course(s) with id(s) ${coursesAlreadyAdded.join(', ')} is/are already added to the student ${getUserName()}`
             });
         }
+    }
+
         // studentExist.courses.push(...courses);
         // await studentExist.save();
         // res.status(200).json({
         //     msg: 'Course added to the student',
         //     studentExist
         // });
-    }
     // const student = new Student({ user, courses });
     // student.courses.push(...courses);
     // await student.save();
     // res.status(200).json({
     //     student
     // });
+}
 
-    
+const getCoursesByStudent = async (req, res) => {
+    let studentId = getUserIdentity();
+    req.body.user = studentId;
+
+    const { user } = req.body;
+
+    const student = await Student.findOne({user}).populate('courses');
+    res.status(200).json({
+        msg: 'Courses of the student',
+        student
+    });
 }
 
 
 
 module.exports = {
     getStudent,
-    postCourse 
+    postCourse,
+    getCoursesByStudent
 }
