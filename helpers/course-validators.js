@@ -11,30 +11,18 @@ const isTeacher = async () => {
     }
 }
 
-const existStudent = async (id) => {
-    const student = await Student.findOne({ id });
-    if (student) {
+const limitCourses = async () => {
+    const student = await Student.findOne({getUserIdentity});
+    console.log("course: ", student);
+    if (!student) {
         
-    }
-}
+    }else if(student.courses.length > 3){
 
-const existCourse = async (id = []) => {
-    const course = await Student.findOne({ getUserIdentity });
-    console.log(course);
-    if (course.courses.includes()) {
-        throw new Error(`The course with id ${id} is already added to the student ${getUserName()}`);
-    }
-}
-
-const limitCourses = async (courses) => {
-    if (courses.length > 3) {
-        throw new Error('The limit of courses is 3');
     }
 }
 
 module.exports = {
     isTeacher,
-    limitCourses,
-    existCourse,
-    existStudent
+    limitCourses
+    //existCourse,
 }

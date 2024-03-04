@@ -33,6 +33,11 @@ const postCourse = async (req, res) => {
     });
 }
 
+// const deleteCourse = async (req, res){
+
+
+// }
+
 module.exports = {
     getCourse, 
     postCourse
